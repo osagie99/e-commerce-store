@@ -12,7 +12,7 @@ export interface Category {
 
 export interface Product {
   id: string;
-  catergory: Category;
+  category: Category;
   name: string;
   price: string;
   isFeatured: boolean;

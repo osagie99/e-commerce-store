@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FC } from "react";
 import IconButton from "@/components/ui/IconButton";
 import { Expand, ShoppingCart } from "lucide-react";
+import Currency from "@/components/ui/Currency";
 
 interface ProductCardProps {
   data: Product;
@@ -12,6 +13,7 @@ interface ProductCardProps {
 const ProductCard: FC<ProductCardProps> = ({ data }) => {
   return (
     <div className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
+      {/* Images And Actions */}
       <div className="aspect-square rounded-xl bg-gray-100 relative">
         <Image
           alt="Image"
@@ -33,6 +35,19 @@ const ProductCard: FC<ProductCardProps> = ({ data }) => {
             />
           </div>
         </div>
+      </div>
+      {/* {Decription} */}
+      <div>
+        <p className=" font-semibold text-lg">
+          {data.name}
+        </p>
+        <p className=" text-sm text-gray-500">
+          {data.category?.name}
+        </p>
+      </div>
+      {/* {Price} */}
+      <div className="flex items-center justify-between">
+        <Currency price={data?.price}/>
       </div>
     </div>
   );
